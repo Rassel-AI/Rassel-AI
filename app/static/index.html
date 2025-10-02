@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Cipher Lab</title>
+	<link rel="stylesheet" href="/static/css/style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header class="topbar">
+		<div class="brand">🗝️ Cipher Lab</div>
+		<div class="stats">
+			<span id="totalEntries">0</span> entries
+			<span class="sep">|</span>
+			Subjects: <span id="subjectsCount">0</span>
+			<span class="sep">|</span>
+			Professions: <span id="professionsCount">0</span>
+			<span class="sep">|</span>
+			Characters: <span id="charactersCount">0</span>
+		</div>
+	</header>
+	<main class="container">
+		<section class="panel">
+			<h2>Input</h2>
+			<div class="grid">
+				<label>Subject
+					<input id="subject" list="subjects" placeholder="e.g., literature, art, science" />
+				</label>
+				<datalist id="subjects"></datalist>
+				<label>Profession
+					<input id="profession" list="professions" placeholder="e.g., poet, scientist" />
+				</label>
+				<datalist id="professions"></datalist>
+				<label>Character
+					<input id="character" list="characters" placeholder="e.g., Oscar Wilde" />
+				</label>
+				<datalist id="characters"></datalist>
+				<label>Type</label>
+				<div class="radio">
+					<label><input type="radio" name="type" value="TEXT" checked /> TEXT</label>
+					<label><input type="radio" name="type" value="QUOTE" /> QUOTE</label>
+				</div>
+				<label>Puzzle Start #
+					<input id="startSerial" type="number" min="1" placeholder="1" />
+				</label>
+				<label>Min Length
+					<input id="minLen" type="number" min="1" value="1" />
+				</label>
+				<label>Max Length
+					<input id="maxLen" type="number" min="1" value="120" />
+				</label>
+				<label>Cipher Method
+					<select id="method">
+						<option value="caesar">Caesar</option>
+						<option value="monoalpha">Monoalphabetic Substitution</option>
+						<option value="playfair">Playfair</option>
+						<option value="hill">Hill</option>
+						<option value="vigenere">Vigenère</option>
+						<option value="otp">One-Time Pad</option>
+						<option value="railfence">Rail Fence</option>
+						<option value="rowcolumn">Row-Column Transposition</option>
+					</select>
+				</label>
+				<label>Parameter
+					<input id="parameter" placeholder="Depends on method" />
+					<small id="paramHint"></small>
+				</label>
+			</div>
+			<label>Answer Text / Quote
+				<textarea id="text" rows="4" placeholder="Enter text or quote..."></textarea>
+			</label>
+			<div class="actions">
+				<button id="encryptBtn" class="btn primary">🔐 Encrypt</button>
+				<button id="nextBtn" class="btn">➡️ Next</button>
+				<button id="endBtn" class="btn danger">⏹ End Session</button>
+				<button id="downloadBtn" class="btn success" disabled>⬇️ Download</button>
+			</div>
+			<div id="message" class="message" role="alert"></div>
+		</section>
+		<section class="panel">
+			<h2>Output</h2>
+			<div id="output" class="output"></div>
+		</section>
+		<section class="panel">
+			<h2>Search</h2>
+			<div class="grid">
+				<label>Subject <input id="sSubject" list="subjects" /></label>
+				<label>Profession <input id="sProfession" list="professions" /></label>
+				<label>Character <input id="sCharacter" list="characters" /></label>
+				<label>Method
+					<select id="sMethod">
+						<option value="">Any</option>
+						<option value="caesar">Caesar</option>
+						<option value="monoalpha">Monoalphabetic</option>
+						<option value="playfair">Playfair</option>
+						<option value="hill">Hill</option>
+						<option value="vigenere">Vigenère</option>
+						<option value="otp">One-Time Pad</option>
+						<option value="railfence">Rail Fence</option>
+						<option value="rowcolumn">Row-Column</option>
+					</select>
+				</label>
+				<label>Query <input id="sQuery" placeholder="search text" /></label>
+			</div>
+			<button id="searchBtn" class="btn">🔎 Search</button>
+			<div id="results" class="results"></div>
+		</section>
+	</main>
+	<script src="/static/js/app.js"></script>
+</body>
+</html>

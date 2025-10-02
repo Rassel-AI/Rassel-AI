@@ -1,0 +1,56 @@
+:root{
+	--bg:#0f1115;
+	--panel:#151923;
+	--text:#e8eef8;
+	--muted:#95a2b3;
+	--primary:#5b9cff;
+	--danger:#ff6b6b;
+	--success:#22c55e;
+	--border:#2a3140;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial;
+	background:var(--bg);
+	color:var(--text);
+}
+.topbar{
+	display:flex;justify-content:space-between;align-items:center;
+	padding:12px 16px;border-bottom:1px solid var(--border);
+	position:sticky;top:0;background:rgba(15,17,21,.9);backdrop-filter:saturate(140%) blur(8px);
+}
+.brand{font-weight:700;font-size:18px}
+.stats{color:var(--muted);font-size:14px}
+.stats .sep{opacity:.4;margin:0 8px}
+.container{max-width:1100px;margin:24px auto;padding:0 16px;display:grid;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px}
+.panel h2{margin:0 0 12px 0;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+label{display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:13px}
+input,select,textarea{
+	background:#0c0f14;color:var(--text);border:1px solid var(--border);
+	border-radius:10px;padding:10px;font-size:14px;outline:none;
+}
+textarea{resize:vertical}
+.radio{display:flex;gap:16px;align-items:center}
+.actions{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+.btn{
+	border:1px solid var(--border);background:#0c0f14;color:var(--text);
+	padding:10px 14px;border-radius:999px;cursor:pointer;font-weight:600
+}
+.btn.primary{background:var(--primary);border-color:transparent;color:#0b1220}
+.btn.danger{background:var(--danger);border-color:transparent;color:#220b0b}
+.btn.success{background:var(--success);border-color:transparent;color:#06140b}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.message{margin-top:12px;color:#ffd166}
+.output{white-space:pre-wrap;border:1px dashed var(--border);border-radius:10px;padding:12px;min-height:60px}
+.results{margin-top:12px;display:grid;gap:8px}
+.card{border:1px solid var(--border);border-radius:10px;padding:10px;background:#0c0f14}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid var(--border);font-size:12px;color:var(--muted);margin-right:6px}
+.copy{
+	margin-left:8px;background:#1d2430;border:1px solid var(--border);
+	padding:4px 8px;border-radius:8px;color:var(--text);cursor:pointer;font-size:12px
+}
+@media (max-width:600px){.topbar{flex-direction:column;gap:6px}}
